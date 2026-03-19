@@ -55,7 +55,7 @@ public class HomeController : Controller
             await img.CopyToAsync(stream);
         }
 
-        return Ok(new { fileName, url = $"~/Uploads/{fileName}" });
+        return Ok(new { fileName, url = $"/Uploads/{fileName}" });
     }
 
     [HttpPost]
