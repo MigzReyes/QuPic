@@ -25,6 +25,11 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Scanned()
+    {
+        return View();
+    }
+
     [HttpPost]
     public async Task<IActionResult> UploadImg([FromForm] IFormFile img)
     {

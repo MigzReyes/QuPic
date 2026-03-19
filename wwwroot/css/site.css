@@ -685,12 +685,12 @@ footer {
     overflow-y: auto;
 }
 
-.modal-body-message-con .date {
+.date {
     text-align: end;
     font-size: var(--body-sm);
 }
 
-.modal-body-message-con .to {
+.to {
     text-align: start;
     font-size: var(--body-lg);
 }
@@ -704,7 +704,58 @@ footer {
     font-size: var(--body-lg);
 }
 
-.modal-body-message-con .from {
+.from {
     text-align: end;
     font-size: var(--body-lg);
+}
+
+/* SCANNED */
+
+.scanned {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scanned-con {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scanned-head {
+    width: 100%;
+    display: flex;
+    padding: var(--space-3);
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-main);
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+}
+
+.scanned-head-logo {
+    width: 85px;
+}
+
+.scanned-body {
+    padding: var(--space-7);
+    display: flex;
+    gap: var(--space-3);
+    background: var(--white-muted-bg);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+}
+
+.picture-con img {
+    border-radius: var(--radius-md);
+}
+
+.scanned-body-message-con {
+    font-size: var(--body-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
 }
