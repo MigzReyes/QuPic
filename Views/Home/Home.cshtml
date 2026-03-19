@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home";
+    ViewData["Page"] = "home";
 }
 
 <!-- HERO SECTION -->
@@ -127,13 +128,14 @@
                         <p>This photo will be saved as your digital memory.</p>
 
                         <div class="upload-con">
+
                             <div class="upload-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M176 544C96.5 544 32 479.5 32 400C32 336.6 73 282.8 129.9 263.5C128.6 255.8 128 248 128 240C128 160.5 192.5 96 272 96C327.4 96 375.5 127.3 399.6 173.1C413.8 164.8 430.4 160 448 160C501 160 544 203 544 256C544 271.7 540.2 286.6 533.5 299.7C577.5 320 608 364.4 608 416C608 486.7 550.7 544 480 544L176 544zM337 255C327.6 245.6 312.4 245.6 303.1 255L231.1 327C221.7 336.4 221.7 351.6 231.1 360.9C240.5 370.2 255.7 370.3 265 360.9L296 329.9L296 432C296 445.3 306.7 456 320 456C333.3 456 344 445.3 344 432L344 329.9L375 360.9C384.4 370.3 399.6 370.3 408.9 360.9C418.2 351.5 418.3 336.3 408.9 327L336.9 255z"/></svg>
                             </div>
 
                             <div class="upload-con-para">
                                 <p class="medium-text" >Upload your Photo</p>
-                                <p>No file chosen</p>
+                                <input type="file" id="img" accept="image/png, image/jpg">
                             </div>
                         </div>
 
@@ -144,20 +146,20 @@
                     </div>
 
                     <div class="create-body-col max-width form">
-                        <form action="">
+                        <form id="memoryForm">
                             <div class="form-input-con">
                                 <p class="medium-text">From</p>
-                                <input type="text" placeholder="Input your name here">
+                                <input id="from" type="text" placeholder="Input your name here">
                             </div>
 
                             <div class="form-input-con">
                                 <p class="medium-text">To</p>
-                                <input type="text" placeholder="Input a name here">
+                                <input id="to" type="text" placeholder="Input a name here">
                             </div>
 
                             <div class="form-input-con">
                                 <p class="medium-text">Message</p>
-                                <textarea name="message" id="message" placeholder="Hi, friend...."></textarea>
+                                <textarea id="message" name="message" id="message" placeholder="Hi, friend...."></textarea>
                             </div>
                         </form>
                     </div>
@@ -175,8 +177,8 @@
                     <p class="note"><span class="medium-text">Note:</span> This memory and message is linked to the QR code on your QuPic keychain. Once saved, scan the QR code anytime to view this memory</p>
 
                     <div class="create-body-button-con">
-                        <button class="primary-sub-button">Generate QR</button>
-                        <button class="primary-main-button">Scan QR</button>
+                        <button class="primary-sub-button generate-qr">Generate QR</button>
+                        <button class="primary-main-button scan-qr">Scan QR</button>
                     </div>
                 </div>
             </div>

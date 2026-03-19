@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 </head>
-<body>
+<body data-page="@ViewBag.Page">
     <main>
         @RenderBody()
     </main>
@@ -117,6 +117,6 @@
     </div>
 
     
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="module" src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>

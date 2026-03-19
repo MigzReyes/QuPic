@@ -360,6 +360,7 @@ button {
 
 .create-body p {
     color: var(--white);
+    cursor: default;
 }
 
 .create-body-con {
@@ -397,6 +398,7 @@ button {
 }
 
 .upload-con {
+    cursor: pointer;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -405,6 +407,10 @@ button {
     padding: var(--space-3);
     background: var(--white-muted-bg);
     border-radius: var(--radius-md);
+}
+
+.upload-con p {
+    cursor: pointer;
 }
 
 .upload-con p {
@@ -451,6 +457,7 @@ button {
 }
 
 .qr {
+    display: none;
     gap: var(--space-1);
 }
 
@@ -478,6 +485,24 @@ button {
     display: flex;
     justify-content: center;
     gap: var(--space-3);
+}
+
+.generate-qr {
+    transition: 0.3s ease-in-out;
+}
+
+.generate-qr:hover {
+    background: var(--accent-sub);
+    color: var(--text);
+}
+
+.scan-qr {
+    transition: 0.3s ease-in-out;
+}
+
+.scan-qr:hover {
+    background: var(--accent-main);
+    color: var(--white);
 }
 
 /* FOOTER */
