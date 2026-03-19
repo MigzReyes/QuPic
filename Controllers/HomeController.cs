@@ -40,7 +40,7 @@ public class HomeController : Controller
     {
         if (img == null || img.Length == 0) return BadRequest();
 
-        var uploadsPath = Path.Combine(_env.ContentRootPath, "Uploads");
+        var uploadsPath = Path.Combine(_env.WebRootPath, "Uploads");
 
         if (!Directory.Exists(uploadsPath))
         {
