@@ -203,6 +203,11 @@ button {
     color: var(--danger) !important;
 }
 
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /* HERO */
 .hero-section {
     background: var(--primary-sub);

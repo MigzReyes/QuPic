@@ -27,27 +27,40 @@ const PageScripts = {
         const to = document.getElementById("to");
         const message = document.getElementById("message");
         const img = document.getElementById("img");
+        const submitBtn = document.querySelector(".generate-qr");
 
         memoryForm.addEventListener("submit", async function (e) {
             e.preventDefault();
 
-            const imgData = utils.validateImg(img); // CHECK IMG
-            utils.validateFormInput(memoryForm); // CHECKS FORM
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Processing...";
 
-            const checkAllInputFields = utils.checkAllInputFields(memoryForm);
+            try {
+                const imgData = utils.validateImg(img); // CHECK IMG
+                utils.validateFormInput(memoryForm); // CHECKS FORM
 
-            if (checkAllInputFields) {
-                const imgUrl = await utils.uploadImg(imgData);
+                const checkAllInputFields = utils.checkAllInputFields(memoryForm);
 
-                utils.debug("Image url", imgUrl);
-                
-                utils.debug("Data", from.value + " " + to.value + " " + message.value);
-                const qr = await utils.uploadMemories(imgUrl, to.value, from.value, message.value);
+                if (checkAllInputFields) {
+                    const imgUrl = await utils.uploadImg(imgData);
 
-                document.querySelector(".qr").classList.add("show");
-                QRCode.toCanvas(document.getElementById("qrCanvas"), qr);
-                utils.sendEmailWithAttach("amandasanjuan25@gmail.com",  from.value, "qrCanvas"); // CHANGE email
-                utils.displayPopUp("memorySaved");
+                    utils.debug("Image url", imgUrl);
+                    
+                    utils.debug("Data", from.value + " " + to.value + " " + message.value);
+                    const qr = await utils.uploadMemories(imgUrl, to.value, from.value, message.value);
+
+                    document.querySelector(".qr").classList.add("show");
+                    await QRCode.toCanvas(document.getElementById("qrCanvas"), qr);
+
+                    await utils.sendEmailWithAttach("johnmigzreyes0@gmail.com",  from.value, "qrCanvas"); // CHANGE email
+
+                    utils.displayPopUp("memorySaved");
+                }
+            } catch (err) {
+                utils.debug("Error", err);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Generate QR";
             }
         });
     }
