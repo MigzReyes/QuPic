@@ -52,7 +52,7 @@ const PageScripts = {
                     document.querySelector(".qr").classList.add("show");
                     await QRCode.toCanvas(document.getElementById("qrCanvas"), qr);
 
-                    await utils.sendEmailWithAttach("johnmigzreyes0@gmail.com",  from.value, "qrCanvas"); // CHANGE email
+                    await utils.sendEmailWithAttach("amandasanjuan25@gmail.com",  from.value, "qrCanvas"); // CHANGE email
 
                     utils.displayPopUp("memorySaved");
                 }
