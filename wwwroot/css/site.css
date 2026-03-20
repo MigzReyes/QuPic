@@ -39,6 +39,7 @@
     --white-muted-bg: hsl(var(--white-h), var(--white-s), calc(var(--white-l) - 5%));
     --black: hsl(var(--black-h), var(--black-s), var(--black-l));
     --black-muted-bg: hsla(var(--black-h), var(--black-s), var(--black-l), calc(var(--black-a) - 0.75));
+    --black-shadow-color: hsla(var(--black-h), var(--black-s), var(--black-l), calc(var(--black-a) - 0.95));
     --grey-bg: hsl(var(--text-h), var(--text-s), var(--text-l));
     --primary-main: hsl(var(--primary-main-h), var(--primary-main-s), var(--primary-main-l));
     --primary-sub: hsl(var(--primary-sub-h), var(--primary-sub-s), var(--primary-sub-l));
@@ -712,17 +713,47 @@ footer {
 /* SCANNED */
 
 .scanned {
-    height: 100vh;
+    min-height: 100dvh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    padding: var(--space-7);
+}
+
+.scanned .splatter {
+    position: absolute;
+    width: max(300px, 20vw);
+}
+
+.splatter-1 {
+    left: -125px;
+    top: -125px;
+}
+
+.splatter-2 {
+    right: -125px;
+    top: -125px;
+}
+
+.splatter-3 {
+    left: -125px;
+    bottom: -125px;
+}
+
+.splatter-4 {
+    right: -125px;
+    bottom: -125px;
 }
 
 .scanned-con {
-    max-width: 1200px;
     display: flex;
+    position: relative;
+    z-index: 9999;
     flex-direction: column;
+    border-radius: var(--radius-md);
+    box-shadow: var(--box-shadow);
 }
 
 .scanned-head {
@@ -743,19 +774,41 @@ footer {
 .scanned-body {
     padding: var(--space-7);
     display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: var(--space-3);
     background: var(--white-muted-bg);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
 }
 
+.picture-con {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    max-width: 250px;
+}
+
 .picture-con img {
     border-radius: var(--radius-md);
 }
 
+.scanned-body-picture-con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .scanned-body-message-con {
+    width: max(150px, 75vw);
     font-size: var(--body-lg);
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+}
+
+.message-con p {
+    white-space: pre-wrap;
+    word-break: break-all;
 }

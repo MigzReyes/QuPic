@@ -59,8 +59,8 @@ export async function uploadMemories(imgUrl, to, from, message) {
 
     const data = await req.json();
 
-    debug("Qr url", data.qrUrl);
-    return data.qrUrl;
+    debug("Qr url", data.url);
+    return data.url;
 }
 
 export function checkAllInputFields(form) {

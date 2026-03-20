@@ -62,9 +62,7 @@ public class HomeController : Controller
     public async Task<IActionResult> UploadMemories([FromBody] ClientsMemoriesDto memoriesDto)
     {
         var guid = Guid.NewGuid().ToString();
-        var url = "https://polygamistic-compunctiously-olga.ngrok-free.dev/Scanned/";
-
-        var qrUrl = $"{url}{guid}";
+        var url = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Scanned/{guid}";
 
         var memories = new Memories
         {
@@ -78,6 +76,6 @@ public class HomeController : Controller
         _context.Memories.Add(memories);
         await _context.SaveChangesAsync();
 
-        return Ok( new { qrUrl });
+        return Ok( new { url });
     }
 }
