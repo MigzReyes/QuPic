@@ -1,5 +1,22 @@
 ﻿import * as utils from "./utils.js";
 
+// GLOBAL VARIABLE
+const modal = document.querySelector(".modal");
+const closeIcon = document.querySelector(".close-icon");
+
+
+// CLOSE ALL POP UPS
+closeIcon.addEventListener("click", function () {
+    utils.closePopUp();
+});
+
+modal.addEventListener("click", function (e) {
+    // outside click to
+    if (e.target === modal) {
+        utils.closePopUp();
+    }
+});
+
 const PageScripts = {
     home: function () {
         utils.debug("Page", "Home");
@@ -29,6 +46,7 @@ const PageScripts = {
 
                 document.querySelector(".qr").classList.add("show");
                 QRCode.toCanvas(document.getElementById("qrCanvas"), qr);
+                utils.displayPopUp("memorySaved");
             }
         });
     }

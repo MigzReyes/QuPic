@@ -110,3 +110,17 @@ export function errorText(message) {
     p.classList.add("error");
     return p;
 }
+
+export function displayPopUp(popUpId) {
+    const modal = document.querySelector(".modal"); // Possible may cause an error
+    const popUp = document.getElementById(popUpId);
+
+    modal.classList.add("show");
+    popUp.classList.add("show");
+}
+
+export function closePopUp() {
+    const modal = document.querySelector(".modal"); // Possible may cause an error
+    modal.querySelectorAll(".show").forEach(p => p.classList.remove("show"));
+    modal.classList.remove("show");
+}
